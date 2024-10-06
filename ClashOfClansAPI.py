@@ -6,7 +6,6 @@ headers = {
 }
 
 def get_user(player_tag):
-    # Mengambil informasi akun dari Clash of Clans API berdasarkan tag pemain
     response = requests.get(
         f'https://cocproxy.royaleapi.dev/v1/players/%23{player_tag}', headers=headers)
     if response.status_code == 200:
@@ -16,7 +15,6 @@ def get_user(player_tag):
         return {"error": "Gagal mengambil data pemain"}
 
 def search_clans(clan_name):
-    # API pencarian klan berdasarkan nama
     response = requests.get(
         f'https://cocproxy.royaleapi.dev/v1/players/%23{clan_name}', headers=headers)
     if response.status_code == 200:
@@ -25,7 +23,6 @@ def search_clans(clan_name):
     else:
         return {"error": "Gagal mencari klan"}
 
-# Meminta pengguna untuk memilih apa yang ingin dilakukan
 print("Pilih opsi:")
 print("1: Ambil informasi pemain")
 print("2: Cari klan")
@@ -33,13 +30,11 @@ print("2: Cari klan")
 choice = input("Masukkan pilihan (1 atau 2): ")
 
 if choice == "1":
-    # Jika pengguna memilih untuk mendapatkan informasi pemain
     player_tag = input("Masukkan tag pemain (tanpa simbol #): ")
     print("Informasi pemain:")
     print(get_user(player_tag))
 
 elif choice == "2":
-    # Jika pengguna memilih untuk mencari klan
     clan_name = input("Masukkan nama klan: ")
     print("Hasil pencarian klan:")
     print(search_clans(clan_name))
