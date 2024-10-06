@@ -16,7 +16,7 @@ def get_user(player_tag):
 
 def search_clans(clan_name):
     response = requests.get(
-        f'https://cocproxy.royaleapi.dev/v1/players/%23{clan_name}', headers=headers)
+        f'https://cocproxy.royaleapi.dev/v1/clans/%23{clan_name}', headers=headers)
     if response.status_code == 200:
         clan_json = response.json()
         return clan_json
